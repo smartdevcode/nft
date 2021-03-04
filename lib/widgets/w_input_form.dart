@@ -4,30 +4,24 @@ import 'package:nft/services/safety/base_stateful.dart';
 class WInputForm extends StatefulWidget {
   const WInputForm({
     Key key,
-    this.controller,
-    this.labelText,
+    @required this.labelText,
     this.errorText,
     this.suffixIcon,
-    this.obscureText,
-    this.onTap,
-    this.readOnly = false,
-    this.onChanged,
+    @required this.obscureText,
+    @required this.onChanged,
     this.onSubmitted,
     this.focusNode,
-    this.keyboardType = TextInputType.text,
-    this.textInputAction = TextInputAction.next,
+    this.textInputAction,
+    this.keyboardType,
   }) : super(key: key);
 
   const WInputForm.email({
     Key key,
-    this.controller,
-    this.labelText = 'Email',
+    @required this.labelText,
     this.errorText,
     this.suffixIcon,
     this.obscureText = false,
-    this.onTap,
-    this.readOnly = false,
-    this.onChanged,
+    @required this.onChanged,
     this.onSubmitted,
     this.focusNode,
     this.textInputAction = TextInputAction.next,
@@ -36,27 +30,21 @@ class WInputForm extends StatefulWidget {
 
   const WInputForm.password({
     Key key,
-    this.controller,
-    this.labelText = 'Password',
+    @required this.labelText,
     this.errorText,
     this.suffixIcon,
     this.obscureText = true,
-    this.onTap,
-    this.readOnly = false,
-    this.onChanged,
+    @required this.onChanged,
     this.onSubmitted,
     this.focusNode,
     this.textInputAction = TextInputAction.done,
     this.keyboardType = TextInputType.visiblePassword,
   }) : super(key: key);
 
-  final TextEditingController controller;
   final String labelText;
   final String errorText;
   final Widget suffixIcon;
   final bool obscureText;
-  final bool readOnly;
-  final Function() onTap;
   final Function(String) onChanged;
   final Function(String) onSubmitted;
   final FocusNode focusNode;
@@ -72,7 +60,6 @@ class _WInputFormState extends BaseStateful<WInputForm> {
   Widget build(BuildContext context) {
     super.build(context);
     return TextField(
-      controller: widget.controller,
       autocorrect: false,
       enableSuggestions: false,
       decoration: InputDecoration(

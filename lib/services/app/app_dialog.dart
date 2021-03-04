@@ -41,7 +41,7 @@ class AppDialogProvider {
   Future<void> showAppDialog(BuildContext context, String content,
       {String title}) async {
     hideAppDialog(isClean: true);
-    await showDialog<dynamic>(
+    showDialog<dynamic>(
       context: context,
       barrierDismissible: false,
       builder: (BuildContext dialogContext) {

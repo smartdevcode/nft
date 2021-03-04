@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
-import 'package:nft/generated/l10n.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:nft/utils/app_route.dart';
 import 'package:nft/utils/app_theme.dart';
 import 'package:provider/provider.dart';
@@ -33,7 +33,7 @@ extension AppRouteExt on BuildContext {
     return route().navigatorKey.currentState;
   }
 
-  S get strings => S.of(this);
+  AppLocalizations get strings => AppLocalizations.of(this);
 }
 
 /// Extension for screen util
@@ -101,9 +101,6 @@ extension DateTimeExtension on DateTime {
 
   DateTime onlyTime([int _hour, int _minute]) =>
       DateTime.utc(1970, 1, 1, _hour ?? hour, _minute ?? minute, 0, 0, 0);
-
-  DateTime atTime(int _hour, int _minute, [int _second]) =>
-      DateTime(year, month, day, _hour, _minute, _second ?? 0, 0, 0);
 
   DateTime utcTimeFirstDaySinceEpoch() =>
       DateTime.utc(1970, 1, 1, hour, minute, second, millisecond, microsecond);

@@ -20,7 +20,6 @@ Successful
  */
 
 import 'package:nft/models/local/token.dart';
-import 'package:nft/utils/app_log.dart';
 
 import 'base_response.dart';
 
@@ -34,11 +33,6 @@ class LoginResponse extends BaseResponse<Token> {
 
   @override
   Token jsonToData(dynamic dataJson) {
-    try {
-      return Token.fromJson(dataJson as Map<String, dynamic>);
-    } catch (e) {
-      logger.e('LoginResponse:jsonToData: $e');
-    }
-    return null;
+    return Token.fromJson(dataJson as Map<String, dynamic>);
   }
 }
