@@ -41,7 +41,7 @@ class AppDialogProvider {
   Future<void> showAppDialog(BuildContext context, String content,
       {String title}) async {
     hideAppDialog(isClean: true);
-    showDialog<dynamic>(
+    await showDialog<dynamic>(
       context: context,
       barrierDismissible: false,
       builder: (BuildContext dialogContext) {
@@ -57,7 +57,7 @@ class AppDialogProvider {
             child: SelectableText(content ?? ''),
           ),
           actions: <Widget>[
-            FlatButton(
+            TextButton(
               onPressed: () {
                 hideAppDialog();
               },
